@@ -12,13 +12,15 @@ namespace Sekamar.Gameplay
 {
     public class GameplayLauncher : SceneLauncher<GameplayLauncher, GameplayView>
     {
-        //private InputController _inputController;
+        private InputController _inputController;
         private AttackController _attackController;
+        private MovementController _movementController;
         public override string SceneName => "Gameplay";
 
         protected override IConnector[] GetSceneConnectors()
         {
-            return null;
+            return new IConnector[] { 
+                new GameplayConnector()};
         }
 
         protected override IController[] GetSceneDependencies()
@@ -31,6 +33,8 @@ namespace Sekamar.Gameplay
 
         protected override IEnumerator InitSceneObject()
         {
+            _inputController.SetView(_view.inputView);
+            _movementController.SetView(_view.movementView);
             _attackController.SetView(_view.attackView);
             yield return null;
         }

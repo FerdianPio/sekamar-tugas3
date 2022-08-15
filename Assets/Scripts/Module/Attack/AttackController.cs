@@ -25,13 +25,13 @@ namespace Sekamar.SpaceShooter.Module.Attack
             //}
         }
 
-        public override void SetView(AttackView view)
+        /*public override void SetView(AttackView view)
         {
             base.SetView(view);
             Debug.Log("Tes");
             view.SpawnBullet();
             Debug.Log("Done");
-        }
+        }*/
 
         //public void OnAttack(AttackView view)
         //{
