@@ -15,6 +15,7 @@ namespace Sekamar.SpaceShooter.Module.InputControl
         {
             _view.OnLeftPressed += OnLeftPressed;
             _view.OnRightPressed += OnRightPressed;
+            _view.OnSpacePressed += OnSpacePressed;
         }
 
         private void OnLeftPressed()
@@ -25,6 +26,11 @@ namespace Sekamar.SpaceShooter.Module.InputControl
         private void OnRightPressed()
         {
             Publish<InputMessage>(new InputMessage(1));
+        }
+        private void OnSpacePressed()
+        {
+            Publish<InputMessage>(new InputMessage(0));
+            Debug.Log("Space ditekan");
         }
 
         public override void SetView(InputView view)
