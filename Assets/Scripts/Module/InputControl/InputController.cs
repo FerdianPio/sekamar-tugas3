@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using Agate.MVC.Base;
+using Sekamar.SpaceShooter.Module.Movement;
 
-namespace Sekamar.SpaceShooter.Module.Input
+namespace Sekamar.SpaceShooter.Module.InputControl
 {
     public class InputController : ObjectController<InputController, InputView>
     {
-        [SerializeField]
-        private KeyCode _left, _right, _shoot;
+
     }
 }
