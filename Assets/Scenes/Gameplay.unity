@@ -152,6 +152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f0f70dec3a4f4445a42df4f2c3ff511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputView: {fileID: 2051962710}
+  attackView: {fileID: 1044420557}
+  movementView: {fileID: 2051962712}
 --- !u!4 &748411839
 Transform:
   m_ObjectHideFlags: 0
@@ -382,6 +385,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1044420555
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1044420556}
+  - component: {fileID: 1044420557}
+  m_Layer: 0
+  m_Name: AttackView
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1044420556
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044420555}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.626289, z: -20}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2051962709}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1044420557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044420555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30dfb4ad6d81466498af674f2b147587, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 7184868001925165602, guid: ca8751a0812fd394d929b461c47294f8, type: 3}
 --- !u!1 &2051962708
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,7 +460,8 @@ Transform:
   m_LocalPosition: {x: 0, y: -0.268, z: 10}
   m_LocalScale: {x: 0.04643083, y: 0.07390475, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1044420556}
   m_Father: {fileID: 1016810781}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -432,6 +481,7 @@ MonoBehaviour:
   _right: 275
   _shoot: 273
   _movement: {fileID: 2051962712}
+  _attack: {fileID: 1044420557}
 --- !u!212 &2051962711
 SpriteRenderer:
   m_ObjectHideFlags: 0
