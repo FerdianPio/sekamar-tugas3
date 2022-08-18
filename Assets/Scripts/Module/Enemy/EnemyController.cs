@@ -12,14 +12,15 @@ namespace Sekamar.SpaceShooter.Module.Enemy
         
         public void Init()
         {
-            //_view.OnGameUpdate += OnGameUpdate;            
+            _view.OnGameUpdate += OnGameUpdate;
             Debug.Log("Nothing "+_view.name);
         }
 
-        /*private void OnGameUpdate()
+        private void OnGameUpdate()
         {
+            Debug.Log("Masuk ongameupdate");
             movement.SetDirection(1);
-        }*/
+        }
 
         public override void SetView(EnemyView view)
         {

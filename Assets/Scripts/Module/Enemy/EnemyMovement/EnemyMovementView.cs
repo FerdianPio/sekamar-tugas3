@@ -14,9 +14,9 @@ namespace Sekamar.SpaceShooter.Module.Enemy
         {
             OnGamePlay?.Invoke();
         }
-        public void Move(int _direction)
+        public void Move(Vector2 _direction)
         {
-            transform.Translate(_direction * _speed * Time.deltaTime, 0f, 0);
+            transform.Translate(_direction * _speed * Time.deltaTime);
         }
         
         

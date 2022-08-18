@@ -3,6 +3,7 @@ using Agate.MVC.Core;
 using Sekamar.Boot;
 using Sekamar.SpaceShooter.Module.Attack;
 using Sekamar.SpaceShooter.Module.Enemy;
+using Sekamar.SpaceShooter.Module.EnemyPool;
 using Sekamar.SpaceShooter.Module.GridSystem;
 using Sekamar.SpaceShooter.Module.InputControl;
 using Sekamar.SpaceShooter.Module.Movement;
@@ -17,8 +18,10 @@ namespace Sekamar.Gameplay
         private InputController _inputController;
         private AttackController _attackController;
         private MovementController _movementController;
-        private GridSystemController _gridSystemController;
+        //private GridSystemController _gridSystemController;
         //private EnemyController _enemyController;
+        private EnemyPoolController _enemyPoolController;
+        private EnemyPoolContainerController _enemyPoolContainerController;
         private EnemyMovementController _enemyMovementController;
         public override string SceneName => "Gameplay";
 
@@ -34,9 +37,11 @@ namespace Sekamar.Gameplay
                 new InputController(),
                 new MovementController(),
                 new AttackController(),
-                new GridSystemController(),
+                //new GridSystemController(),
                 //new EnemyController(),
-                new EnemyMovementController()};
+                new EnemyMovementController(),
+                new EnemyPoolController(),
+                new EnemyPoolContainerController(),};
         }
 
         protected override IEnumerator InitSceneObject()
@@ -44,9 +49,11 @@ namespace Sekamar.Gameplay
             _inputController.SetView(_view.inputView);
             _movementController.SetView(_view.movementView);
             _attackController.SetView(_view.attackView);
-            _gridSystemController.SetView(_view.gridSystemView);
+            //_gridSystemController.SetView(_view.gridSystemView);
             //_enemyController.SetView(_view.enemyView);
             _enemyMovementController.SetView(_view.enemyMovementView);
+            _enemyPoolController.SetView(_view.enemyPoolView);
+            _enemyPoolContainerController.SetView(_view.EnemyPoolContainerView);
             yield return null;
         }
 

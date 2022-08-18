@@ -16,7 +16,7 @@ namespace Sekamar.SpaceShooter.Module.GridSystem
         public override void SetView(GridSystemView view)
         {
             base.SetView(view);
-            //Init(_view._leftDown, _view._rightUp);
+            Init(_view._leftDown, _view._rightUp);
             Debug.Log(view._leftDown);
         }
     }

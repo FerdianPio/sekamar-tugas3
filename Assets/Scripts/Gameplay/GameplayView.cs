@@ -7,6 +7,7 @@ using Sekamar.SpaceShooter.Module.GridSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sekamar.SpaceShooter.Module.EnemyPool;
 
 namespace Sekamar.Gameplay
 {
@@ -20,5 +21,7 @@ namespace Sekamar.Gameplay
         public GridSystemView gridSystemView;
         //public EnemyView enemyView;
         public EnemyMovementView enemyMovementView;
+        public EnemyPoolView enemyPoolView;
+        public EnemyPoolContainerView EnemyPoolContainerView;
     }
 }

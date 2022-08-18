@@ -9,7 +9,7 @@ namespace Sekamar.SpaceShooter.Module.Enemy
 {
     public class EnemyMovementController : ObjectController<EnemyMovementController, EnemyMovementView>
     {
-        public int _direction { get; private set; }
+        public Vector2 _direction { get; private set; }
 
         public void Init()
         {
@@ -21,9 +21,10 @@ namespace Sekamar.SpaceShooter.Module.Enemy
             SetDirection(-1);
         }
 
-        public void SetDirection(int _dir)
+        public void SetDirection(float _dir)
         {
-            _direction = _dir;
+            Debug.Log("Test");
+            _direction = new Vector2(_dir,0);
             _view.Move(_direction);
             //SwitchOnEdge(gridSystemController.GetLeftDown, gridSystemController.GetRightUp);
         }
@@ -31,7 +32,7 @@ namespace Sekamar.SpaceShooter.Module.Enemy
         {
             if (leftDown.transform.position.x < -Camera.main.orthographicSize + 1 || rightUP.transform.position.x > Camera.main.orthographicSize - 1)
             {
-                SetDirection(-_direction);
+                SetDirection(-_direction.x);
             }
 
         }
