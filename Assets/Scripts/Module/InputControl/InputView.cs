@@ -18,7 +18,7 @@ namespace Sekamar.SpaceShooter.Module.InputControl
         [SerializeField]
         private MovementView _movement;
         [SerializeField]
-        private PlayerAttackView _attack;
+        private BulletContainerView _attack;
 
         void Update()
         {

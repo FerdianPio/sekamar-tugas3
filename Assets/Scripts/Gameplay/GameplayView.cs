@@ -14,8 +14,8 @@ namespace Sekamar.Gameplay
         [SerializeField]
         public InputController InputController;
         public InputView inputView;
-        public PlayerAttackView playerAttackView;
-        public EnemyAttackView enemyAttackView;
+        public BulletContainerView bulletContainer;
+        //public EnemyAttackView enemyAttackView;
         public MovementView movementView;
     }
 }

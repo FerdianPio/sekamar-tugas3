@@ -15,7 +15,7 @@ namespace Sekamar.Gameplay
     {
         private InputController _inputController;
         private PlayerAttackController _playerAttackController;
-        private EnemyAttackController _enemyAttackController;
+        private BulletContainerController _bulletContainerController;
         private MovementController _movementController;
         public override string SceneName => "Gameplay";
 
@@ -30,16 +30,17 @@ namespace Sekamar.Gameplay
             return new IController[] { 
                 new InputController(),
                 new MovementController(),
-                new PlayerAttackController(),
-                new EnemyAttackController()};
+                new BulletContainerController(),
+                //new EnemyAttackController()
+            };
         }
 
         protected override IEnumerator InitSceneObject()
         {
             _inputController.SetView(_view.inputView);
             _movementController.SetView(_view.movementView);
-            _playerAttackController.SetView(_view.playerAttackView);
-            _enemyAttackController.SetView(_view.enemyAttackView);
+            _bulletContainerController.SetView(_view.bulletContainer);
+            //_enemyAttackController.SetView(_view.enemyAttackView);
             yield return null;
         }
 
