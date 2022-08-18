@@ -12,6 +12,7 @@ namespace Sekamar.SpaceShooter.Module.Enemy
         public void SetPoint(int point)
         {
             _point = point;
+            SetDataAsDirty();
         }
     }
 

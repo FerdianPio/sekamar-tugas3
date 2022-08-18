@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sekamar.SpaceShooter.Module.Player;
 using Sekamar.SpaceShooter.Module.Enemy;
+using Sekamar.SpaceShooter.Module.Score;
 
 namespace Sekamar.Gameplay
 {
@@ -20,5 +21,6 @@ namespace Sekamar.Gameplay
         public BulletContainerView bulletContainer;
         public MovementView movementView;
         public EnemyView enemyView;
+        public ScoreView scoreView;
     }
 }
