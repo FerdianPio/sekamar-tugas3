@@ -8,13 +8,14 @@ using Sekamar.SpaceShooter.Module.Movement;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sekamar.SpaceShooter.Module.Player;
 
 namespace Sekamar.Gameplay
 {
     public class GameplayLauncher : SceneLauncher<GameplayLauncher, GameplayView>
     {
         private InputController _inputController;
-        private PlayerAttackController _playerAttackController;
+        private PlayerController _playerController;
         private BulletContainerController _bulletContainerController;
         private MovementController _movementController;
         public override string SceneName => "Gameplay";
@@ -31,12 +32,14 @@ namespace Sekamar.Gameplay
                 new InputController(),
                 new MovementController(),
                 new BulletContainerController(),
+                new PlayerController(),
                 //new EnemyAttackController()
             };
         }
 
         protected override IEnumerator InitSceneObject()
         {
+            _playerController.SetView(_view.playerView);
             _inputController.SetView(_view.inputView);
             _movementController.SetView(_view.movementView);
             _bulletContainerController.SetView(_view.bulletContainer);

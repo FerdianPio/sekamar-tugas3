@@ -6,6 +6,7 @@ using Sekamar.SpaceShooter.Module.Movement;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sekamar.SpaceShooter.Module.Player;
 
 namespace Sekamar.Gameplay
 {
@@ -13,6 +14,7 @@ namespace Sekamar.Gameplay
     {
         [SerializeField]
         public InputController InputController;
+        public PlayerView playerView;
         public InputView inputView;
         public BulletContainerView bulletContainer;
         //public EnemyAttackView enemyAttackView;
