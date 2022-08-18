@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Agate.MVC.Base;
 using Sekamar.SpaceShooter.Module.Movement;
-using Sekamar.SpaceShooter.Module.Attack;
+using Sekamar.SpaceShooter.Module.PlayerAttack;
 
 namespace Sekamar.SpaceShooter.Module.InputControl
 {
@@ -11,20 +11,21 @@ namespace Sekamar.SpaceShooter.Module.InputControl
     {
         public event System.Action OnLeftPressed;
         public event System.Action OnRightPressed;
+        public event System.Action OnSpacePressed;
 
         [SerializeField]
         private KeyCode _left, _right, _shoot;
         [SerializeField]
         private MovementView _movement;
         [SerializeField]
-        private AttackView _attack;
+        private BulletContainerView _attack;
 
         void Update()
         {
             if (ReadButtonDown(_left)) { OnLeftPressed?.Invoke(); }
             else if (ReadButtonDown(_right)) { OnRightPressed?.Invoke(); }
 
-            if (ReadButtonDown(_shoot)) { _attack.SpawnBullet(); }
+            if (Input.GetKeyDown(_shoot)) { OnSpacePressed?.Invoke(); }
         }
 
         public bool ReadButtonDown(KeyCode _key)

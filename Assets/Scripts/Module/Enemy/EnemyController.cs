@@ -1,34 +1,28 @@
 using Agate.MVC.Base;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 namespace Sekamar.SpaceShooter.Module.Enemy
 {
     public class EnemyController : ObjectController<EnemyController, EnemyModel, EnemyView>
     {
-        EnemyMovementController movement;
-        
-        public void Init(EnemyModel enemyModel, EnemyView enemyView)
+        public void Init()
         {
-            _model = enemyModel;
-            _view.OnGameUpdate += OnGameUpdate;
-            SetView(enemyView);
-            Debug.Log("Nothing "+_view.name);
+            _view.OnShot += Onshot;
         }
 
-        private void OnGameUpdate()
+        private void Onshot()
         {
-            Debug.Log("Masuk ongameupdate");
-            movement.SetDirection(1);
+            _view.gameObject.SetActive(false);
+            Debug.Log(_model._point);
         }
-
-        // public override void SetView(EnemyView view)
-        // {
-        //     base.SetView(view);
-        //     Init();
-        // }
+        public override void SetView(EnemyView view)
+        {
+            base.SetView(view);
+            Init();
+        }
     }
 
 }

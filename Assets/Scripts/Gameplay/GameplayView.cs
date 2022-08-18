@@ -1,13 +1,13 @@
 using Agate.MVC.Base;
-using Sekamar.SpaceShooter.Module.Attack;
-using Sekamar.SpaceShooter.Module.Enemy;
+using Sekamar.SpaceShooter.Module.EnemyAttack;
+using Sekamar.SpaceShooter.Module.PlayerAttack;
 using Sekamar.SpaceShooter.Module.InputControl;
 using Sekamar.SpaceShooter.Module.Movement;
-using Sekamar.SpaceShooter.Module.GridSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Sekamar.SpaceShooter.Module.EnemyPool;
+using Sekamar.SpaceShooter.Module.Player;
+using Sekamar.SpaceShooter.Module.Enemy;
 
 namespace Sekamar.Gameplay
 {
@@ -15,13 +15,10 @@ namespace Sekamar.Gameplay
     {
         [SerializeField]
         public InputController InputController;
+        public PlayerView playerView;
         public InputView inputView;
-        public AttackView attackView;
+        public BulletContainerView bulletContainer;
         public MovementView movementView;
-        public GridSystemView gridSystemView;
-        //public EnemyView enemyView;
-        public EnemyMovementView enemyMovementView;
-        public EnemyPoolView enemyPoolView;
-        public EnemyPoolContainerView EnemyPoolContainerView;
+        public EnemyView enemyView;
     }
 }

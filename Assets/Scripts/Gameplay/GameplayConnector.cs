@@ -5,38 +5,34 @@ using Agate.MVC.Base;
 using Sekamar.SpaceShooter.Module.InputControl;
 using Sekamar.SpaceShooter.Module.Movement;
 using Sekamar.SpaceShooter.Message;
-using Sekamar.SpaceShooter.Module.Enemy;
-using Sekamar.SpaceShooter.Module.GridSystem;
+using Sekamar.SpaceShooter.Module.PlayerAttack;
+using Sekamar.SpaceShooter.Module.EnemyAttack;
 
 namespace Sekamar.Gameplay
 {
     public class GameplayConnector : BaseConnector
     {
-        private InputController _inputController;
+        //private InputController _inputController;
         private MovementController _movementController;
-        private GridSystemController _gridSystemController;
-        private EnemyMovementController _enemyMovementController;
+        private BulletContainerController _bulletContainerController;
 
         public void OnMessageReceived(InputMessage message)
         {
-            _movementController.SetDirection(message._inputValue);
+            if (message._inputValue != 0) _movementController.SetDirection(message._inputValue);
+            else _bulletContainerController.CreateInstanceObject();
         }
-
-        public void OnMessageReceived(EnemyMessage message)
+        /*public void OnPlayerAttacked(InputMessage message)
         {
-            _enemyMovementController.SwitchOnEdge(message._leftDown, message._rightUp);
-            Debug.Log("message._MessageUpdate");
-        }
+            _bulletContainerController.CreateInstanceObject();
+        }*/
         protected override void Connect()
         {
             Subscribe<InputMessage>(OnMessageReceived);
-            Subscribe<EnemyMessage>(OnMessageReceived);
         }
 
         protected override void Disconnect()
         {
             Unsubscribe<InputMessage>(OnMessageReceived);
-            Unsubscribe<EnemyMessage>(OnMessageReceived);
         }
     }
 
