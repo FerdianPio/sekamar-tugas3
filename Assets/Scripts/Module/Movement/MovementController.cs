@@ -14,6 +14,7 @@ namespace Sekamar.SpaceShooter.Module.Movement
             _direction = _dir;
             _view.Move(_direction);
         }
+
     }
 
 }

@@ -8,9 +8,10 @@ namespace Sekamar.SpaceShooter.Module.GridSystem
 {
     public class GridSystemView : BaseView
     {
-        [SerializeField] private int _width, _height;
-
-        [SerializeField] private GameObject _tilePrefab;
+        [SerializeField] 
+        private int _width, _height;
+        [SerializeField] 
+        private GameObject _tilePrefab;
 
         private Dictionary<Vector2, GameObject> _tiles;
 
@@ -35,8 +36,8 @@ namespace Sekamar.SpaceShooter.Module.GridSystem
 
             foreach(GameObject _o in _tiles.Values)
             {
-                _o.transform.position -= new Vector3(_width / 2, _height / 2);
-                Debug.Log(_o.transform.position);
+                _o.transform.position -= new Vector3(_width / 2, _height / 4);
+                //Debug.Log(_o.transform.position);
             }
         }
 

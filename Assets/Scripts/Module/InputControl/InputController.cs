@@ -20,7 +20,6 @@ namespace Sekamar.SpaceShooter.Module.InputControl
         private void OnLeftPressed()
         {
             Publish<InputMessage>(new InputMessage(-1));
-            Debug.Log("a;slkdfhyiopsdyg");
         }
         private void OnRightPressed()
         {
