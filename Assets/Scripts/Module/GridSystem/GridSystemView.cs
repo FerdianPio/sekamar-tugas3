@@ -1,4 +1,5 @@
 using Agate.MVC.Base;
+using Sekamar.Gameplay;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,8 +34,9 @@ namespace Sekamar.SpaceShooter.Module.GridSystem
                     spawnedTile.name = $"Tile {x} {y}";
                     
                     _tiles[new Vector2(x, y)] = spawnedTile;
+                    spawnedTile.transform.parent = gameObject.transform;
                     if (x == 0 && y == 0) _leftDown = spawnedTile.transform;
-                    else if (x == _width && y == _height) _rightUp = spawnedTile.transform;
+                    if (x == _width-1 && y == _height-1) _rightUp = spawnedTile.transform;
                 }
             }
 

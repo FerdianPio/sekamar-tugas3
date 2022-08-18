@@ -8,9 +8,6 @@ namespace Sekamar.SpaceShooter.Module.GridSystem
 {
     public class GridSystemController : ObjectController<GridSystemController, GridSystemView>
     {
-        public Transform _leftDown { get; }
-        public Transform _rightUp { get; }
-
         public void Init(Transform a, Transform b)
         {
             Publish<EnemyMessage>(new EnemyMessage(a,b));
@@ -19,7 +16,8 @@ namespace Sekamar.SpaceShooter.Module.GridSystem
         public override void SetView(GridSystemView view)
         {
             base.SetView(view);
-            Init(view._leftDown, view._rightUp);
+            //Init(_view._leftDown, _view._rightUp);
+            Debug.Log(view._leftDown);
         }
     }
 

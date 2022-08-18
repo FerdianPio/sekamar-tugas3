@@ -3,6 +3,7 @@ using Agate.MVC.Core;
 using Sekamar.Boot;
 using Sekamar.SpaceShooter.Module.Attack;
 using Sekamar.SpaceShooter.Module.Enemy;
+using Sekamar.SpaceShooter.Module.GridSystem;
 using Sekamar.SpaceShooter.Module.InputControl;
 using Sekamar.SpaceShooter.Module.Movement;
 using System.Collections;
@@ -16,7 +17,9 @@ namespace Sekamar.Gameplay
         private InputController _inputController;
         private AttackController _attackController;
         private MovementController _movementController;
-        private EnemyController _enemyController;
+        private GridSystemController _gridSystemController;
+        //private EnemyController _enemyController;
+        private EnemyMovementController _enemyMovementController;
         public override string SceneName => "Gameplay";
 
         protected override IConnector[] GetSceneConnectors()
@@ -27,11 +30,13 @@ namespace Sekamar.Gameplay
 
         protected override IController[] GetSceneDependencies()
         {
-            return new IController[] { 
+            return new IController[] {
                 new InputController(),
                 new MovementController(),
                 new AttackController(),
-                new EnemyController()};
+                new GridSystemController(),
+                //new EnemyController(),
+                new EnemyMovementController()};
         }
 
         protected override IEnumerator InitSceneObject()
@@ -39,7 +44,9 @@ namespace Sekamar.Gameplay
             _inputController.SetView(_view.inputView);
             _movementController.SetView(_view.movementView);
             _attackController.SetView(_view.attackView);
-            _enemyController.SetView(_view.enemyView);
+            _gridSystemController.SetView(_view.gridSystemView);
+            //_enemyController.SetView(_view.enemyView);
+            _enemyMovementController.SetView(_view.enemyMovementView);
             yield return null;
         }
 

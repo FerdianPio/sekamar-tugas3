@@ -7,8 +7,13 @@ namespace Sekamar.SpaceShooter.Module.Enemy
 {
     public class EnemyMovementView : BaseView
     {
+        public event System.Action OnGamePlay;
         public float _speed;
 
+        private void Update()
+        {
+            OnGamePlay?.Invoke();
+        }
         public void Move(int _direction)
         {
             transform.Translate(_direction * _speed * Time.deltaTime, 0f, 0);

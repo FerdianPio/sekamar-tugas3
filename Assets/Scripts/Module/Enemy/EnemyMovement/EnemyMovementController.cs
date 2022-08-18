@@ -1,4 +1,6 @@
 using Agate.MVC.Base;
+using Sekamar.SpaceShooter.Module.GridSystem;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,10 +11,21 @@ namespace Sekamar.SpaceShooter.Module.Enemy
     {
         public int _direction { get; private set; }
 
+        public void Init()
+        {
+            _view.OnGamePlay += OnGamePlay;
+        }
+
+        private void OnGamePlay()
+        {
+            SetDirection(-1);
+        }
+
         public void SetDirection(int _dir)
         {
             _direction = _dir;
             _view.Move(_direction);
+            //SwitchOnEdge(gridSystemController.GetLeftDown, gridSystemController.GetRightUp);
         }
         public void SwitchOnEdge(Transform leftDown, Transform rightUP)
         {
@@ -20,6 +33,13 @@ namespace Sekamar.SpaceShooter.Module.Enemy
             {
                 SetDirection(-_direction);
             }
+
+        }
+
+        public override void SetView(EnemyMovementView view)
+        {
+            base.SetView(view);
+            Init();
         }
     }
 

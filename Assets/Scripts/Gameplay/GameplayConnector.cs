@@ -6,6 +6,7 @@ using Sekamar.SpaceShooter.Module.InputControl;
 using Sekamar.SpaceShooter.Module.Movement;
 using Sekamar.SpaceShooter.Message;
 using Sekamar.SpaceShooter.Module.Enemy;
+using Sekamar.SpaceShooter.Module.GridSystem;
 
 namespace Sekamar.Gameplay
 {
@@ -13,6 +14,7 @@ namespace Sekamar.Gameplay
     {
         private InputController _inputController;
         private MovementController _movementController;
+        private GridSystemController _gridSystemController;
         private EnemyMovementController _enemyMovementController;
 
         public void OnMessageReceived(InputMessage message)
@@ -23,6 +25,7 @@ namespace Sekamar.Gameplay
         public void OnMessageReceived(EnemyMessage message)
         {
             _enemyMovementController.SwitchOnEdge(message._leftDown, message._rightUp);
+            Debug.Log("message._MessageUpdate");
         }
         protected override void Connect()
         {
