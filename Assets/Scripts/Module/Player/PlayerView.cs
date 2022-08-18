@@ -7,8 +7,8 @@ namespace Sekamar.SpaceShooter.Module.Player {
     public class PlayerView : BaseView
     {
         public event System.Action OnCollideWithDammager;
-        [SerializeField]
-        private int hp;
+        
+        public int hp;
         void Update()
         {
         

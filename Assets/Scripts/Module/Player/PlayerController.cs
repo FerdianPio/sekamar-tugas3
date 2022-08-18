@@ -9,6 +9,7 @@ namespace Sekamar.SpaceShooter.Module.Player {
     {
         public void Init()
         {
+            _model.setHp(_view.hp);
             _view.OnCollideWithDammager += OnCollideWithDammager;
         }
 
