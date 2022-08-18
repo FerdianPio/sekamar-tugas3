@@ -13,6 +13,8 @@ namespace Sekamar.SpaceShooter.Module.GridSystem
         [SerializeField] 
         private GameObject _tilePrefab;
 
+        public Transform _leftDown, _rightUp;
+
         private Dictionary<Vector2, GameObject> _tiles;
 
         void Start()
@@ -31,6 +33,8 @@ namespace Sekamar.SpaceShooter.Module.GridSystem
                     spawnedTile.name = $"Tile {x} {y}";
                     
                     _tiles[new Vector2(x, y)] = spawnedTile;
+                    if (x == 0 && y == 0) _leftDown = spawnedTile.transform;
+                    else if (x == _width && y == _height) _rightUp = spawnedTile.transform;
                 }
             }
 
