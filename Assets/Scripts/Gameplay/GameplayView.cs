@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Sekamar.SpaceShooter.Module.Player;
+using Sekamar.SpaceShooter.Module.Enemy;
 
 namespace Sekamar.Gameplay
 {
@@ -17,7 +18,7 @@ namespace Sekamar.Gameplay
         public PlayerView playerView;
         public InputView inputView;
         public BulletContainerView bulletContainer;
-        //public EnemyAttackView enemyAttackView;
         public MovementView movementView;
+        public EnemyView enemyView;
     }
 }
