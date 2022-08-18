@@ -12,28 +12,27 @@ namespace Sekamar.Gameplay
 {
     public class GameplayConnector : BaseConnector
     {
-        private InputController _inputController;
+        //private InputController _inputController;
         private MovementController _movementController;
-        private PlayerAttackController _playerAttackController;
+        private BulletContainerController _bulletContainerController;
 
         public void OnMessageReceived(InputMessage message)
         {
-            _movementController.SetDirection(message._inputValue);
+            if (message._inputValue != 0) _movementController.SetDirection(message._inputValue);
+            else _bulletContainerController.CreateInstanceObject();
         }
-        public void OnPlayerAttacked(InputMessage message)
+        /*public void OnPlayerAttacked(InputMessage message)
         {
-            _playerAttackController.PlayerShoot(message._inputValue);
-        }
+            _bulletContainerController.CreateInstanceObject();
+        }*/
         protected override void Connect()
         {
             Subscribe<InputMessage>(OnMessageReceived);
-            Subscribe<InputMessage>(OnPlayerAttacked);
         }
 
         protected override void Disconnect()
         {
             Unsubscribe<InputMessage>(OnMessageReceived);
-            Unsubscribe<InputMessage>(OnPlayerAttacked);
         }
     }
 
