@@ -6,6 +6,7 @@ using Sekamar.SpaceShooter.Module.Movement;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sekamar.SpaceShooter.Module.PlayerBullet;
 
 namespace Sekamar.Gameplay
 {
@@ -17,5 +18,6 @@ namespace Sekamar.Gameplay
         public PlayerAttackView playerAttackView;
         public EnemyAttackView enemyAttackView;
         public MovementView movementView;
+        public PlayerBulletView playerBulletView;
     }
 }

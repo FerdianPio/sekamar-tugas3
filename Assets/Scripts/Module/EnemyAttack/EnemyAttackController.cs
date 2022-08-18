@@ -16,7 +16,7 @@ namespace Sekamar.SpaceShooter.Module.EnemyAttack
         public void OnPreparingToShoot()
         {
             _model.SetRunTime(Time.deltaTime);
-            Debug.Log(_model.RunTime);
+            //Debug.Log(_model.RunTime);
             if (_model.RunTime >= _model.Interval)
             {
                 _view.SpawnEnemyBullet();
