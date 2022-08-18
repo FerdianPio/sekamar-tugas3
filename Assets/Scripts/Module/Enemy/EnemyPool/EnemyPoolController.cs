@@ -23,20 +23,57 @@ namespace Sekamar.SpaceShooter.Module.EnemyPool
         {
             /*_view.onMovePosition += OnMovePosition;
             _view.onDespawn += OnDespawnEnemy;*/
+            _model.SetHeight(5);
+            _model.SetWidth(11);
             Debug.Log(_model.PoolSize);
-            for (int i = 0; i < _model.PoolSize; i++)
+            // for (int i = 0; i < _model.PoolSize; i++)
+            // {
+            for (int x = 0; x < _model.Width; x++)
             {
-                // GameObject enemyPrefab = Resources.Load<GameObject>(@"Prefabs/Enemy");
-                // GameObject enemy = Object.Instantiate(enemyPrefab, _view.transform);
+                for (int y = 0; y < _model.Height; y++)
+                {
+                    // GameObject enemyPrefab = Resources.Load<GameObject>(@"Prefabs/Enemy");
+                    // GameObject enemy = Object.Instantiate(enemyPrefab, _view.transform);
 
-                EnemyModel instanceModel = new EnemyModel();
-                GameObject instanceObject = GameObject.Instantiate(_view.prefab, Vector3.zero, Quaternion.identity);
-                EnemyView instanceView = instanceObject.AddComponent<EnemyView>();
-                EnemyController instance = new EnemyController();
-                InjectDependencies(instance);
-                instance.Init(instanceModel, instanceView);
+                    EnemyModel instanceModel = new EnemyModel();
+                    GameObject instanceObject = GameObject.Instantiate(_view.prefab, new Vector3(x, y, 10), Quaternion.identity);
+                    EnemyView instanceView = instanceObject.AddComponent<EnemyView>();
+                    EnemyController instance = new EnemyController();
+                    InjectDependencies(instance);
+                    instance.Init(instanceModel, instanceView);
+                    
+                    SpawnEnemy(instanceObject);
+                    instanceObject.name = $"Tile {x} {y}";
+                    
+                    _model._tiles[new Vector2(x, y)] = instanceObject;
+                    // instanceObject.transform.parent = _view.gameObject.transform;
+                    // if (x == 0 && y == 0) _leftDown = spawnedTile.transform;
+                    // if (x == _model.Width-1 && y == _model.Height-1) _rightUp = spawnedTile.transform;
+                }
+            }
+        }
 
-                SpawnEnemy(instanceObject);
+        private void GridSystem(GameObject enemy)
+        {
+            for (int x = 0; x < _model.Width; x++)
+            {
+                for (int y = 0; y < _model.Height; y++)
+                {
+                    // var spawnedTile = Instantiate(_tilePrefab, new Vector3(x, y, 10), Quaternion.identity);
+                    var spawnedTile = enemy;
+                    spawnedTile.name = $"Tile {x} {y}";
+                    
+                    _model._tiles[new Vector2(x, y)] = spawnedTile;
+                    spawnedTile.transform.parent = _view.gameObject.transform;
+                    // if (x == 0 && y == 0) _leftDown = spawnedTile.transform;
+                    // if (x == _model.Width-1 && y == _model.Height-1) _rightUp = spawnedTile.transform;
+                }
+            }
+
+            foreach(GameObject _o in _model._tiles.Values)
+            {
+                _o.transform.position -= new Vector3(_model.Width / 2, _model.Height / 4);
+                //Debug.Log(_o.transform.position);
             }
         }
 
@@ -50,6 +87,8 @@ namespace Sekamar.SpaceShooter.Module.EnemyPool
 
             // set posisi spawn X untuk bullet
             //_model.MoveSpawnPoint();
+
+            
 
             enemy.SetActive(true);
             _model.EnqueueEnemy(enemy);

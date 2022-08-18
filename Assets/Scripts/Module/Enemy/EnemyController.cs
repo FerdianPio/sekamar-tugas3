@@ -20,11 +20,11 @@ namespace Sekamar.SpaceShooter.Module.Enemy
             _view.gameObject.SetActive(false);
             Debug.Log(_model._point);
         }
-        /*public override void SetView(EnemyView view)
-        {
-            base.SetView(view);
-            Init();
-        }*/
+        // public override void SetView(EnemyView view)
+        // {
+        //     base.SetView(view);
+        //     _view.OnShot += Onshot;
+        // }
     }
 
 }

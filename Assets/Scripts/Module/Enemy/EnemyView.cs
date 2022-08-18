@@ -10,6 +10,7 @@ namespace Sekamar.SpaceShooter.Module.Enemy
         public event System.Action OnShot;
         private void OnTriggerEnter2D(Collider2D collision)
         {
+            Debug.Log("triggerEnter");
             OnShot?.Invoke();
         }
     }
