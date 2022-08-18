@@ -1,5 +1,6 @@
 using Agate.MVC.Base;
-using Sekamar.SpaceShooter.Module.Attack;
+using Sekamar.SpaceShooter.Module.EnemyAttack;
+using Sekamar.SpaceShooter.Module.PlayerAttack;
 using Sekamar.SpaceShooter.Module.InputControl;
 using Sekamar.SpaceShooter.Module.Movement;
 using System.Collections;
@@ -13,7 +14,8 @@ namespace Sekamar.Gameplay
         [SerializeField]
         public InputController InputController;
         public InputView inputView;
-        public AttackView attackView;
+        public PlayerAttackView playerAttackView;
+        public EnemyAttackView enemyAttackView;
         public MovementView movementView;
     }
 }
