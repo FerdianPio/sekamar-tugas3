@@ -7,16 +7,11 @@ namespace Sekamar.SpaceShooter.Module.PlayerAttack
 {
     public class BulletView : BaseView
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
+        public event System.Action OnBulletSpawn;
 
-        // Update is called once per frame
         void Update()
         {
-        
+            OnBulletSpawn?.Invoke();
         }
     }
 
