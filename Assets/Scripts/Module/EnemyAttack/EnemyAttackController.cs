@@ -5,14 +5,29 @@ using UnityEngine;
 
 namespace Sekamar.SpaceShooter.Module.EnemyAttack
 {
-    public class EnemyAttackController : ObjectController<EnemyAttackController, EnemyAttackView>
+    public class EnemyAttackController : ObjectController<EnemyAttackController, EnemyAttackModel, EnemyAttackView>
     {
-        public int trigger { get; private set; }
-
-        public void VerifySpawn(int tr)
+        public void Init()
         {
-            trigger = tr;
-            _view.SpawnEnemyBullet(trigger);
+            _view.onPreparingToShoot += OnPreparingToShoot;
+            _model.SetInterval(2);
+        }
+
+        public void OnPreparingToShoot()
+        {
+            _model.SetRunTime(Time.deltaTime);
+            Debug.Log(_model.RunTime);
+            if (_model.RunTime >= _model.Interval)
+            {
+                _view.SpawnEnemyBullet();
+                _model.SetRunTimeToZero();
+            }
+        }
+
+        public override void SetView(EnemyAttackView view)
+        {
+            base.SetView(view);
+            Init();
         }
     }
 }

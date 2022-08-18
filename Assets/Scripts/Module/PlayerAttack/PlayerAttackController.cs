@@ -10,9 +10,9 @@ namespace Sekamar.SpaceShooter.Module.PlayerAttack
     {
         public int trigger { get; private set; }
 
-        public void VerifySpawn(int tr)
+        public void PlayerShoot(int _trigger)
         {
-            trigger = tr;
+            trigger = _trigger;
             _view.SpawnPlayerBullet(trigger);
         }
     }

@@ -15,7 +15,6 @@ namespace Sekamar.Gameplay
         private InputController _inputController;
         private MovementController _movementController;
         private PlayerAttackController _playerAttackController;
-        private EnemyAttackController _enemyAttackController;
 
         public void OnMessageReceived(InputMessage message)
         {
@@ -23,24 +22,18 @@ namespace Sekamar.Gameplay
         }
         public void OnPlayerAttacked(InputMessage message)
         {
-            _playerAttackController.VerifySpawn(message._inputValue);
-        }
-        public void OnEnemyAttacked(InputMessage message)
-        {
-            _enemyAttackController.VerifySpawn(message._inputValue);
+            _playerAttackController.PlayerShoot(message._inputValue);
         }
         protected override void Connect()
         {
             Subscribe<InputMessage>(OnMessageReceived);
             Subscribe<InputMessage>(OnPlayerAttacked);
-            Subscribe<InputMessage>(OnEnemyAttacked);
         }
 
         protected override void Disconnect()
         {
             Unsubscribe<InputMessage>(OnMessageReceived);
             Unsubscribe<InputMessage>(OnPlayerAttacked);
-            Unsubscribe<InputMessage>(OnEnemyAttacked);
         }
     }
 
