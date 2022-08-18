@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Sekamar.SpaceShooter.Module.Enemy
 {
-    public class EnemyModel : BaseModel
+    public class EnemyMovementModel : BaseModel
     {
         
     }

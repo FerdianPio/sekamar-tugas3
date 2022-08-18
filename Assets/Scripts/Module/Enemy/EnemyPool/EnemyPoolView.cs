@@ -10,6 +10,8 @@ namespace Sekamar.SpaceShooter.Module.EnemyPool
         public System.Action onMovePosition;
         public System.Action onDespawn;
 
+        public GameObject prefab;
+
         private void Update()
         {
             onMovePosition?.Invoke();

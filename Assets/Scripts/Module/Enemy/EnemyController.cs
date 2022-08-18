@@ -6,13 +6,15 @@ using System;
 
 namespace Sekamar.SpaceShooter.Module.Enemy
 {
-    public class EnemyController : ObjectController<EnemyController, EnemyView>
+    public class EnemyController : ObjectController<EnemyController, EnemyModel, EnemyView>
     {
         EnemyMovementController movement;
         
-        public void Init()
+        public void Init(EnemyModel enemyModel, EnemyView enemyView)
         {
+            _model = enemyModel;
             _view.OnGameUpdate += OnGameUpdate;
+            SetView(enemyView);
             Debug.Log("Nothing "+_view.name);
         }
 
@@ -22,11 +24,11 @@ namespace Sekamar.SpaceShooter.Module.Enemy
             movement.SetDirection(1);
         }
 
-        public override void SetView(EnemyView view)
-        {
-            base.SetView(view);
-            Init();
-        }
+        // public override void SetView(EnemyView view)
+        // {
+        //     base.SetView(view);
+        //     Init();
+        // }
     }
 
 }

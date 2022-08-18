@@ -7,13 +7,15 @@ using UnityEngine;
 
 namespace Sekamar.SpaceShooter.Module.Enemy
 {
-    public class EnemyMovementController : ObjectController<EnemyMovementController, EnemyMovementView>
+    public class EnemyMovementController : ObjectController<EnemyMovementController, EnemyMovementModel, EnemyMovementView>
     {
         public Vector2 _direction { get; private set; }
 
-        public void Init()
+        public void Init(EnemyMovementModel enemyMovementModel, EnemyMovementView enemyMovementView)
         {
+            _model = enemyMovementModel;
             _view.OnGamePlay += OnGamePlay;
+            SetView(enemyMovementView);
         }
 
         private void OnGamePlay()
@@ -23,10 +25,10 @@ namespace Sekamar.SpaceShooter.Module.Enemy
 
         public void SetDirection(float _dir)
         {
-            Debug.Log("Test");
+            // Debug.Log("Test");
             _direction = new Vector2(_dir,0);
             _view.Move(_direction);
-            //SwitchOnEdge(gridSystemController.GetLeftDown, gridSystemController.GetRightUp);
+            // SwitchOnEdge(gridSystemController.GetLeftDown, gridSystemController.GetRightUp);
         }
         public void SwitchOnEdge(Transform leftDown, Transform rightUP)
         {
@@ -37,11 +39,11 @@ namespace Sekamar.SpaceShooter.Module.Enemy
 
         }
 
-        public override void SetView(EnemyMovementView view)
-        {
-            base.SetView(view);
-            Init();
-        }
+        // public override void SetView(EnemyMovementView view)
+        // {
+        //     base.SetView(view);
+        //     Init();
+        // }
     }
 
 }

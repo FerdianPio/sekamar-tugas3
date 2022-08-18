@@ -53,7 +53,7 @@ namespace Sekamar.Gameplay
             //_enemyController.SetView(_view.enemyView);
             _enemyMovementController.SetView(_view.enemyMovementView);
             _enemyPoolController.SetView(_view.enemyPoolView);
-            _enemyPoolContainerController.SetView(_view.EnemyPoolContainerView);
+            // _enemyPoolContainerController.SetView(_view.EnemyPoolContainerView);
             yield return null;
         }
 
