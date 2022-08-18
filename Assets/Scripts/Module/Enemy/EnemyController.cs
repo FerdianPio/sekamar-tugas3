@@ -8,9 +8,11 @@ namespace Sekamar.SpaceShooter.Module.Enemy
 {
     public class EnemyController : ObjectController<EnemyController, EnemyModel, EnemyView>
     {
-        public void Init()
+        public void Init(EnemyModel model, EnemyView view)
         {
             _view.OnShot += Onshot;
+            _model = model;
+            SetView(view);
         }
 
         private void Onshot()
@@ -18,11 +20,11 @@ namespace Sekamar.SpaceShooter.Module.Enemy
             _view.gameObject.SetActive(false);
             Debug.Log(_model._point);
         }
-        public override void SetView(EnemyView view)
+        /*public override void SetView(EnemyView view)
         {
             base.SetView(view);
             Init();
-        }
+        }*/
     }
 
 }

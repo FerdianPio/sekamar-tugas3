@@ -21,8 +21,9 @@ namespace Sekamar.SpaceShooter.Module.EnemyPool
 
         private void InitPoolObject()
         {
-            _view.onMovePosition += OnMovePosition;
-            _view.onDespawn += OnDespawnEnemy;
+            /*_view.onMovePosition += OnMovePosition;
+            _view.onDespawn += OnDespawnEnemy;*/
+            Debug.Log(_model.PoolSize);
             for (int i = 0; i < _model.PoolSize; i++)
             {
                 // GameObject enemyPrefab = Resources.Load<GameObject>(@"Prefabs/Enemy");
@@ -34,7 +35,7 @@ namespace Sekamar.SpaceShooter.Module.EnemyPool
                 EnemyController instance = new EnemyController();
                 InjectDependencies(instance);
                 instance.Init(instanceModel, instanceView);
-                
+
                 SpawnEnemy(instanceObject);
             }
         }
