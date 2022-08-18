@@ -10,9 +10,9 @@ namespace Sekamar.SpaceShooter.Module.Enemy
     {
         public void Init(EnemyModel model, EnemyView view)
         {
-            _view.OnShot += Onshot;
             _model = model;
             SetView(view);
+            _view.OnShot += Onshot;
         }
 
         private void Onshot()

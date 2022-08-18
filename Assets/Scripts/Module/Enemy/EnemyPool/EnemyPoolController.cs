@@ -31,7 +31,7 @@ namespace Sekamar.SpaceShooter.Module.EnemyPool
 
                 EnemyModel instanceModel = new EnemyModel();
                 GameObject instanceObject = GameObject.Instantiate(_view.prefab, Vector3.zero, Quaternion.identity);
-                EnemyView instanceView = instanceObject.GetComponent<EnemyView>();
+                EnemyView instanceView = instanceObject.AddComponent<EnemyView>();
                 EnemyController instance = new EnemyController();
                 InjectDependencies(instance);
                 instance.Init(instanceModel, instanceView);

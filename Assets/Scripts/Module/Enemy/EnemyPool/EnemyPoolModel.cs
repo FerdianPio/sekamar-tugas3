@@ -19,7 +19,7 @@ namespace Sekamar.SpaceShooter.Module.EnemyPool
 
         public Vector3 DespawnPosition { get; private set; } = new Vector3(-.2f, -0.5f, 10f);
 
-        private Queue<GameObject> EnemyPool = new Queue<GameObject>();
+        public Queue<GameObject> EnemyPool = new Queue<GameObject>();
 
         public void SetIsPlaying(bool isPlaying)
         {
