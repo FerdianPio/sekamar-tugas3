@@ -7,6 +7,7 @@ using Sekamar.SpaceShooter.Module.Movement;
 using Sekamar.SpaceShooter.Message;
 using Sekamar.SpaceShooter.Module.PlayerAttack;
 using Sekamar.SpaceShooter.Module.EnemyAttack;
+using Sekamar.SpaceShooter.Module.Score;
 
 namespace Sekamar.Gameplay
 {
@@ -15,6 +16,7 @@ namespace Sekamar.Gameplay
         //private InputController _inputController;
         private MovementController _movementController;
         private BulletContainerController _bulletContainerController;
+        private ScoreController _scoreController;
 
         public void OnMessageReceived(InputMessage message)
         {
@@ -25,14 +27,20 @@ namespace Sekamar.Gameplay
         {
             _bulletContainerController.CreateInstanceObject();
         }*/
+        public void OnScoreUpdated(UpdateScoreMessage message)
+        {
+            _scoreController.SetScore(message._scoreValue);
+        }
         protected override void Connect()
         {
             Subscribe<InputMessage>(OnMessageReceived);
+            Subscribe<UpdateScoreMessage>(OnScoreUpdated);
         }
 
         protected override void Disconnect()
         {
             Unsubscribe<InputMessage>(OnMessageReceived);
+            Unsubscribe<UpdateScoreMessage>(OnScoreUpdated);
         }
     }
 
