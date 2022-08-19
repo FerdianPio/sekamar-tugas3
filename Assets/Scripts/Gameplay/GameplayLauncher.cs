@@ -8,15 +8,20 @@ using Sekamar.SpaceShooter.Module.Movement;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sekamar.SpaceShooter.Module.Player;
+using Sekamar.SpaceShooter.Module.Enemy;
+using Sekamar.SpaceShooter.Module.EnemyPool;
 
 namespace Sekamar.Gameplay
 {
     public class GameplayLauncher : SceneLauncher<GameplayLauncher, GameplayView>
     {
         private InputController _inputController;
-        private PlayerAttackController _playerAttackController;
+        private PlayerController _playerController;
         private BulletContainerController _bulletContainerController;
         private MovementController _movementController;
+        private EnemyPoolController _enemyPoolController;
+        //private EnemyController _enemyController;
         public override string SceneName => "Gameplay";
 
         protected override IConnector[] GetSceneConnectors()
@@ -31,15 +36,21 @@ namespace Sekamar.Gameplay
                 new InputController(),
                 new MovementController(),
                 new BulletContainerController(),
+                new PlayerController(),
+                new EnemyPoolController(),
+                //new EnemyController()
                 //new EnemyAttackController()
             };
         }
 
         protected override IEnumerator InitSceneObject()
         {
+            _playerController.SetView(_view.playerView);
             _inputController.SetView(_view.inputView);
             _movementController.SetView(_view.movementView);
             _bulletContainerController.SetView(_view.bulletContainer);
+            _enemyPoolController.SetView(_view.enemyPoolView);
+            //_enemyController.SetView(_view.enemyView);
             //_enemyAttackController.SetView(_view.enemyAttackView);
             yield return null;
         }

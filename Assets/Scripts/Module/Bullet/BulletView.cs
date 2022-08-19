@@ -13,6 +13,7 @@ namespace Sekamar.SpaceShooter.Module.PlayerAttack
         {
             OnBulletSpawn?.Invoke();
         }
+
     }
 
 }
