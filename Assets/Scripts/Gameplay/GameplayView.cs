@@ -21,8 +21,8 @@ namespace Sekamar.Gameplay
         public InputView inputView;
         public BulletContainerView bulletContainer;
         public MovementView movementView;
-        public EnemyView enemyView;
-        public ScoreView scoreView;
+        //public EnemyView enemyView;
+        //public ScoreView scoreView;
         public EnemyPoolView enemyPoolView;
     }
 }

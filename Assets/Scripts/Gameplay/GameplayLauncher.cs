@@ -56,7 +56,7 @@ namespace Sekamar.Gameplay
             _enemyPoolController.SetView(_view.enemyPoolView);
             //_enemyController.SetView(_view.enemyView);
             //_enemyAttackController.SetView(_view.enemyAttackView);
-            _scoreController.SetView(_view.scoreView);
+            //_scoreController.SetView(_view.scoreView);
             yield return null;
         }
 
