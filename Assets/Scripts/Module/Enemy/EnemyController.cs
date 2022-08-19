@@ -9,8 +9,10 @@ namespace Sekamar.SpaceShooter.Module.Enemy
 {
     public class EnemyController : ObjectController<EnemyController, EnemyModel, EnemyView>
     {
-        public void Init()
+        public void Init(EnemyModel model, EnemyView view)
         {
+            _model = model;
+            SetView(view);
             _view.OnShot += Onshot;
             _model.SetPoint(100);
         }
@@ -22,11 +24,11 @@ namespace Sekamar.SpaceShooter.Module.Enemy
             //publish dapet score
             Publish<UpdateScoreMessage>(new UpdateScoreMessage(_model._point));
         }
-        public override void SetView(EnemyView view)
-        {
-            base.SetView(view);
-            Init();
-        }
+        // public override void SetView(EnemyView view)
+        // {
+        //     base.SetView(view);
+        //     _view.OnShot += Onshot;
+        // }
     }
 
 }

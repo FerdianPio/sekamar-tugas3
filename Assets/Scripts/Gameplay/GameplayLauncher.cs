@@ -11,6 +11,7 @@ using UnityEngine;
 using Sekamar.SpaceShooter.Module.Player;
 using Sekamar.SpaceShooter.Module.Enemy;
 using Sekamar.SpaceShooter.Module.Score;
+using Sekamar.SpaceShooter.Module.EnemyPool;
 
 namespace Sekamar.Gameplay
 {
@@ -22,6 +23,8 @@ namespace Sekamar.Gameplay
         private MovementController _movementController;
         private EnemyController _enemyController;
         private ScoreController _scoreController;
+        private EnemyPoolController _enemyPoolController;
+        
         public override string SceneName => "Gameplay";
 
         protected override IConnector[] GetSceneConnectors()
@@ -38,8 +41,9 @@ namespace Sekamar.Gameplay
                 new BulletContainerController(),
                 new PlayerController(),
                 new EnemyController(),
-                //new EnemyAttackController(),
                 new ScoreController(),
+                new EnemyPoolController(),
+                
             };
         }
 
@@ -49,7 +53,8 @@ namespace Sekamar.Gameplay
             _inputController.SetView(_view.inputView);
             _movementController.SetView(_view.movementView);
             _bulletContainerController.SetView(_view.bulletContainer);
-            _enemyController.SetView(_view.enemyView);
+            _enemyPoolController.SetView(_view.enemyPoolView);
+            //_enemyController.SetView(_view.enemyView);
             //_enemyAttackController.SetView(_view.enemyAttackView);
             _scoreController.SetView(_view.scoreView);
             yield return null;
